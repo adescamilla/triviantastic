@@ -1,4 +1,14 @@
-<script setup></script>
+<script setup>
+import { onMounted, ref } from 'vue'
+import useAPI from '@/composables/useAPI'
+
+const api = useAPI()
+const categories = ref([])
+
+onMounted(async () => {
+   categories.value = await api.getCategories()
+})
+</script>
 
 <template>
    <div class="brand">
@@ -30,7 +40,7 @@
 .categories {
    @apply grid flex-grow grid-cols-4 gap-12;
 
-   & .catergory {
+   & .category {
        @apply flex h-32 items-center justify-center rounded-lg border-4 border-green-500 py-4 text-center font-bold uppercase text-slate-600 transition-colors duration-300;
 
        &:hover {

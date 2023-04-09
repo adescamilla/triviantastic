@@ -1,7 +1,6 @@
 <script setup>
 import MainScore from '@/components/MainScore.vue'
-</script >
-
+</script>
 
 <template>
   <main>
